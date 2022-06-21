@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:28:01 by anremiki          #+#    #+#             */
-/*   Updated: 2022/06/20 18:01:36 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/06/21 12:08:52 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void	HumanA::attack(void)
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-HumanA::HumanA(std::string name, Weapon type)
+HumanA::HumanA(std::string name, Weapon &type) : _type(type)
 {
 	this->_name = name;
-	this->_type = type;
 }
 
 /*************************************************************/

@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:06:38 by anremiki          #+#    #+#             */
-/*   Updated: 2022/06/20 18:05:23 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/06/21 12:10:56 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class HumanB
       ~HumanB();
       void  attack();
       void  setType(Weapon);
+      void  setWeapon(Weapon &type);
    private:
       std::string _name;
       Weapon *_type;

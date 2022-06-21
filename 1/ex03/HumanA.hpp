@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:28:11 by anremiki          #+#    #+#             */
-/*   Updated: 2022/06/20 17:55:35 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/06/21 12:08:49 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class HumanA
 {
    public:
-      HumanA(std::string, Weapon);
+      HumanA(std::string name, Weapon &type);
       ~HumanA();
       void  attack();
    private:
