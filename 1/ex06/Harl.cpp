@@ -25,8 +25,19 @@ void  Harl::complain( std::string level ){
    {
       if (level.compare(this->name[i]) == 0)
       {
-         for (int j = i; j < 4; j++)
-            (this->*func[j])();   
+         switch (i)
+         {
+            case 0:
+               (this->*func[0])();
+            case 1:
+               (this->*func[1])();
+            case 2:
+               (this->*func[2])();
+            case 3:
+               (this->*func[3])();
+            default:
+               break ;
+        }
          return ;
       }
    }
