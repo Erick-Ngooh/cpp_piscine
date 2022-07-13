@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 13:30:06 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/12 18:07:08 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/07/13 01:23:07 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int    Fixed::getRawBits( void ) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+   // std::cout << "getRawBits member function called" << std::endl;
     return (this->_fix);
 }
 
@@ -25,7 +25,7 @@ void    Fixed::setRawBits( int const raw )
 
 float   Fixed::toFloat( void ) const
 {
-    return (static_cast<float>(this->_fix) * static_cast<float>(1 << this->_bits));
+    return (static_cast<float>(this->_fix) / static_cast<float>(1 << this->_bits));
 }
 
 int Fixed::toInt( void ) const
@@ -43,12 +43,14 @@ Fixed::Fixed( void )
 
 Fixed::Fixed( int const integer )
 {
+    std::cout << "Int constructor called" << std::endl;
     this->_fix = integer << this->_bits;
 }
 
 Fixed::Fixed( float const floating )
 {
-    this->_fix = floating * (1 << this->_bits);
+    std::cout << "Float constructor called" << std::endl;
+    this->_fix = roundf(floating * (1 << this->_bits));
 }
 
 Fixed::Fixed( Fixed const & src )
@@ -70,13 +72,14 @@ Fixed::~Fixed( void )
 /*************************************************************/
 Fixed & Fixed::operator=( Fixed const & src )
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Assignation operator called" << std::endl;
     this->_fix = src.getRawBits();
     return (*this);
 }
 
-std::ostream& operator<<( std::ostream &nstream, Fixed const src )
+std::ostream& operator<<( std::ostream &nstream, Fixed const &src )
 {
+    //std::cout << "Shift operator called" << std::endl;
     nstream << src.toFloat();
     return (nstream);
 }
