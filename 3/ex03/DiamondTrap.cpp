@@ -1,26 +1,20 @@
-#include "FragTrap.hpp"
-
-void  FragTrap::highFivesGuys( void )
-{
-   std::cout << "Please give me a high five !" << std::endl;
-}
+#include "DiamondTrap.hpp"
 
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name)
 {
-   std::cout << "Creating a new Fragtrap from a Claptrap" << std::endl;
-   _hp = 100;
-   _mp = 100;
-   _ad = 30;
-   _name = name;
+   _name = name + "_clap_name";
+   _hp = FragTrap._hp;
+   _mp = ScavTrap._mp;
+   _ad = FragTrap._ad;
 }
 
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
-FragTrap::~FragTrap()
+DiamondTrap::~DiamondTrap()
 {
 }
 

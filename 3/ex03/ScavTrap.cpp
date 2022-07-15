@@ -1,26 +1,25 @@
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-void  FragTrap::highFivesGuys( void )
+void  ScavTrap::guardGate( void )
 {
-   std::cout << "Please give me a high five !" << std::endl;
+   std::cout << _name << " entered in Gate keeper mode" << std::endl;
 }
-
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-   std::cout << "Creating a new Fragtrap from a Claptrap" << std::endl;
+   std::cout << "Creating a new ScavTrap from a Claptrap" << std::endl;
    _hp = 100;
-   _mp = 100;
-   _ad = 30;
+   _mp = 50;
+   _ad = 20;
    _name = name;
 }
 
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
-FragTrap::~FragTrap()
+ScavTrap::~ScavTrap()
 {
 }
 
