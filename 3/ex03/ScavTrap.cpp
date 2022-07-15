@@ -21,5 +21,5 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 /*************************************************************/
 ScavTrap::~ScavTrap()
 {
+   std::cout << "ScavTrap destructor" << std::endl;
 }
-

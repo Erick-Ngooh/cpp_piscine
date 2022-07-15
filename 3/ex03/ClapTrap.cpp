@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:56:10 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/14 17:44:49 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/07/16 01:26:16 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void  ClapTrap::beRepaired(unsigned int amount)
 {
    _hp += amount;
    std::cout << "\033[1;33m";
-   if (_hp > 10)
+   if (_hp >= 100)
    {
       _hp = 10;
       std::cout << "ClapTrap " << _name <<" doesn't need to be repaired" <<
@@ -86,4 +86,5 @@ ClapTrap::ClapTrap(std::string new_name)
 /*************************************************************/
 ClapTrap::~ClapTrap()
 {
+   std::cout << "ClapTrap destructor" << std::endl;
 }

@@ -22,5 +22,6 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 /*************************************************************/
 FragTrap::~FragTrap()
 {
+   std::cout << "FragTrap destructor" << std::endl;
 }
 
