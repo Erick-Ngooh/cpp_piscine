@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:56:10 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/16 01:26:16 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/07/16 23:21:20 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,5 @@ ClapTrap::ClapTrap(std::string new_name)
 /*************************************************************/
 ClapTrap::~ClapTrap()
 {
-   std::cout << "ClapTrap destructor" << std::endl;
+   std::cout << "ClapTrap " << _name << " destructor" << std::endl;
 }
