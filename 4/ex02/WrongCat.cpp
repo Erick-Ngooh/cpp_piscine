@@ -1,25 +1,23 @@
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-void  Cat::makeSound( void ) const
+void  WrongCat::makeSound( void ) const
 {
-   std::cout << "Cat says : Purrrr purrrrrr meoww" << std::endl;
+   std::cout << "WrongCat says : wwoem rrrrrup rrrrruP" << std::endl;
 }
-
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-Cat::Cat()
+WrongCat::WrongCat()
 {
-   std::cout << "\033[1;33m" << "Default Cat constructor called" << "\033[0m" << std::endl;
-   _type = "Cat";
-   _brain = new Brain();
+   std::cout << "Default WrongCat constructor called" << std::endl;
+   _type = "WrongCat";
 }
 
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-   std::cout << "\033[1;33m" << "Cat destructor called" << "\033[0m" << std::endl;
-   delete _brain;
+   std::cout << "WrongCat destructor called" << std::endl;
 }
+
