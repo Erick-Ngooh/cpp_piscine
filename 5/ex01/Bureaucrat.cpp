@@ -1,7 +1,17 @@
 #include "Bureaucrat.hpp"
 
+std::string Bureaucrat::getName( void ) const {
+   return (_name);
+}
+
+int   Bureaucrat::getGrade( void ) const {
+   return (_grade);
+}
+
 void  Bureaucrat::upgrade( void )
 {
+   std::cout << "Upgrading " << getName() << " from grade "
+      << getGrade() << " to " << getGrade() - 1 << std::endl;
    _grade--;
    if (_grade < 1)
       throw GradeTooHighException();
@@ -9,19 +19,23 @@ void  Bureaucrat::upgrade( void )
 
 void  Bureaucrat::downgrade( void )
 {
+   std::cout << "Downgrading " << getName() << " from grade "
+      << getGrade() << " to " << getGrade() + 1 << std::endl;
    _grade++;
    if (_grade > 150)
       throw GradeTooLowException();
 }
 
-std::string Bureaucrat::getName( void ) const
+void  Bureaucrat::signForm(Form &form)
 {
-   return (_name);
-}
-
-int   Bureaucrat::getGrade( void ) const
-{
-   return (_grade);
+   if (_grade > form.getSignGrade())
+   {
+      std::cout << "Bureaucrat " << getName() << " couldn't sign "
+         << form.getName() << " because grade is too low" << std::endl;
+      throw GradeTooLowException();
+   }
+   form.changeStatus();
+   std::cout << "Bureaucrat " << getName() << " signed " << form.getName() << std::endl;
 }
 
 /*************************************************************/

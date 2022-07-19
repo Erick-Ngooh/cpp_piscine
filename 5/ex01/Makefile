@@ -6,13 +6,13 @@
 #    By: anremiki <anremiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 03:07:18 by anremiki          #+#    #+#              #
-#    Updated: 2022/07/19 03:07:19 by anremiki         ###   ########.fr        #
+#    Updated: 2022/07/19 18:01:52 by anremiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Exception
 CC = c++
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 
