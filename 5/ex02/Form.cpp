@@ -26,6 +26,11 @@ void  Form::beSigned(Bureaucrat &bureau)
    bureau.signForm(*this);
 }
 
+void  Form::beExec(Bureaucrat &bureau)
+{
+   bureau.execForm(*this);
+}
+
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
