@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:28:02 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/21 06:03:09 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:38:32 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,84 +15,30 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-void  forms( void )
+void  test_intern( void )
 {
+      std::cout << std::endl << "\033[1;31m" << "_____INTERN_____" << "\033[0m" << std::endl;
 
-   std::cout << std::endl << "\033[1;36m" << " ---  FORMS --- " << "\033[0m" << std::endl;
+      Bureaucrat  crat("Manager", 1);
+      Intern   employe;
 
-   ShrubberyCreationForm shrub("Shruberry");
-   PresidentialPardonForm pres("President");
-   RobotomyRequestForm  robot("Robot");
-
-   std::cout << "----------------------------------" << std::endl;
-   std::cout << shrub << std::endl;
-   std::cout << pres << std::endl;
-   std::cout << robot << std::endl;
-   std::cout << "----------------------------------" << std::endl << std::endl;
-}
-
-void  alpha( void )
-{
-      std::cout << std::endl << "\033[1;31m" << "_____SHRUB_____" << "\033[0m" << std::endl;
-
-      Bureaucrat test("Alpha", 2);
-      ShrubberyCreationForm formtest("HappyTree");
-
-      std::cout << test << std::endl;
-
-     // formtest.beExec(test); /* Not signed yet = KO */
-
-      formtest.beSigned(test);
-
-      std::cout << formtest << std::endl;
-
-      formtest.beExec(test); /* Signed = success */
-}
-
-void  beta( void )
-{
-
-      std::cout << std::endl << "\033[1;31m" << "_____ROBOT______" << "\033[0m" << std::endl;
-
-      Bureaucrat  sign("Signatory", 60);
-      Bureaucrat  executor("Executor", 30);
-      RobotomyRequestForm  formtest1("Bender");
+      //Form *pform = employe.makeForm("ShrubberyCreationForm", "TREE");
+      Form *pform = employe.makeForm("RobotomyRequestForm", "BENDER");
+      //Form *pform = employe.makeForm("PresidentialPardonForm", "STUDENT");
       
-      std::cout << sign << std::endl;
-      std::cout << executor << std::endl << std::endl;
-
-      formtest1.beSigned(sign);
-
-      std::cout << formtest1 << std::endl;
-
-      formtest1.beExec(executor);
-}
-
-void  omega( void )
-{
-      std::cout << std::endl << "\033[1;31m" << "_____PRESIDENT_____" << "\033[0m" << std::endl;
-
-      Bureaucrat test2("Omega", 20);
-      PresidentialPardonForm formtest2("Arthur Dent");
-
-      std::cout << test2 << std::endl;
-
-      formtest2.beSigned(test2);
-
-      std::cout << formtest2 << std::endl;
-
-      formtest2.beExec(test2);
+      std::cout << *pform << std::endl;
+      crat.signForm(*pform);
+      pform->beExec(crat);
+      delete pform;
 }
 
 int main(void)
 {
    try
    {
-      forms();
-      alpha();
-      beta();
-      omega();
+     test_intern();
    }
    catch(std::exception &e)
    {

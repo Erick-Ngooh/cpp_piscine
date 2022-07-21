@@ -6,14 +6,14 @@
 #    By: anremiki <anremiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 03:07:18 by anremiki          #+#    #+#              #
-#    Updated: 2022/07/20 17:46:00 by anremiki         ###   ########.fr        #
+#    Updated: 2022/07/21 19:36:16 by anremiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Form
 CC = c++
 SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
-	   RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+	   RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 
