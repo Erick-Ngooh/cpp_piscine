@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:43:21 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/15 14:48:59 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:29:13 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int main(void)
    Random.takeDamage(NiceStud.getAttack());
    NiceStud.attack("Random");
    Random.takeDamage(NiceStud.getAttack());
+
+   std::cout << std::endl;
 
    ScavTrap Bocal("Bocal");
    NiceStud.attack("Bocal");
