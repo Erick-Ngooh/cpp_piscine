@@ -21,6 +21,12 @@ Animal::Animal()
    _type = "Animal";
 }
 
+Animal::Animal(Animal const &src)
+{
+   std::cout << "Copy Animal constructor called" << std::endl;
+   *this = src;
+}
+
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
@@ -29,3 +35,9 @@ Animal::~Animal()
    std::cout << "Animal destructor called" << std::endl;
 }
 
+Animal &Animal::operator=(Animal const &src)
+{
+   std::cout << "Animal assignment operator called" << std::endl;
+   _type = src._type;
+   return *this;
+}

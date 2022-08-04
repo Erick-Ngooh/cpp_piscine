@@ -29,6 +29,7 @@ ScavTrap::ScavTrap(ScavTrap const &src)
 {
    std::cout << "ScavTrap copy constructor called" << std::endl;
    *this = src;
+   std::cout << "Creating a new copied ScavTrap named " << _name << std::endl;
 }
 
 /*************************************************************/
@@ -45,5 +46,6 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &src)
    _hp = src._hp;
    _mp = src._mp;
    _ad = src._ad;
-   std::cout << "Creating a new copied ScavTrap called " << _name << std::endl;
+   
+   return *this;
 }

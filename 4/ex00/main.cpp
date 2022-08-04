@@ -6,7 +6,7 @@
 /*   By: anremiki <anremiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 23:33:33 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/17 00:22:29 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:18:51 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int main( void )
    i->makeSound();
    j->makeSound();
    meta->makeSound();
-
 
    separator(3);
    delete meta;

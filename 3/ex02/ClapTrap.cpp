@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:56:10 by anremiki          #+#    #+#             */
-/*   Updated: 2022/08/03 03:33:38 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/04 01:34:11 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ ClapTrap::ClapTrap(ClapTrap const & src)
 {
    std::cout << "ClapTrap copy constructor called" << std::endl;
    *this = src;
+   std::cout << "Creating a new copied ClapTrap called " << _name << std::endl;
 }
 
 /*************************************************************/
@@ -110,5 +111,5 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &src)
    _hp = src._hp;
    _mp = src._mp;
    _ad = src._ad;
-   std::cout << "Creating a new copied ClapTrap called " << _name << std::endl;
+   return *this;
 }

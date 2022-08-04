@@ -30,10 +30,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::FragTrap(FragTrap const &src)
 {
    std::cout << "FragTrap copy constructor called" << std::endl;
-   _name = src._name;
-   _hp = src._hp;
-   _mp = src._mp;
-   _ad = src._ad;
+   *this = src;
+   std::cout << "Creating a new copied FragTrap named " << _name << std::endl;
 }
 
 /*************************************************************/
@@ -45,4 +43,10 @@ FragTrap::~FragTrap()
 
 FragTrap &FragTrap::operator=(FragTrap const &src)
 {
+   std::cout << "FragTrap assignment operator called" << std::endl;
+   _name = src._name;
+   _hp = src._hp;
+   _mp = src._mp;
+   _ad = src._ad;
+   return *this;
 }

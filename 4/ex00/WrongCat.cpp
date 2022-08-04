@@ -13,6 +13,11 @@ WrongCat::WrongCat()
    _type = "WrongCat";
 }
 
+WrongCat::WrongCat(WrongCat const &src)
+{
+   std::cout << "Copy WrongCat constructor called" << std::endl;
+   *this = src;
+}
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
@@ -21,3 +26,9 @@ WrongCat::~WrongCat()
    std::cout << "WrongCat destructor called" << std::endl;
 }
 
+WrongCat &WrongCat::operator=(WrongCat const &src)
+{
+   std::cout << "WrongCat assignment operator called" << std::endl;
+   _type = src._type;
+   return *this;
+}

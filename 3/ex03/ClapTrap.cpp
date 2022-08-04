@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:56:10 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/16 23:21:20 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/04 01:41:11 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,15 @@ unsigned int   ClapTrap::getAttack( void )
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
+
+ClapTrap::ClapTrap(void) : _name("ClapTrap")
+{
+   _hp = 10;
+   _mp = 10;
+   _ad = 0;
+   std::cout << "Void ClapTrap constructor called" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string new_name)
 {
    _hp = 10;
@@ -81,10 +90,27 @@ ClapTrap::ClapTrap(std::string new_name)
       "' appeared" << std::endl;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &src)
+{
+   std::cout << "ClapTrap copy constructor called" << std::endl;
+   *this = src;
+   std::cout << "A new copied ClapTrap named " << _name << " appeared" << std::endl;
+}
+
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
 ClapTrap::~ClapTrap()
 {
    std::cout << "ClapTrap " << _name << " destructor" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &src)
+{
+   std::cout << "ClapTrap assignment operator called" << std::endl;
+   _name = src._name;
+   _hp = src._hp;
+   _mp = src._mp;
+   _ad = src._ad;
+   return *this;
 }
