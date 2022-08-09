@@ -25,6 +25,8 @@ class Bureaucrat
    };
    public:
    Bureaucrat(std::string name, int grade);
+   Bureaucrat(Bureaucrat const &src);
+   Bureaucrat &operator=(Bureaucrat const &src);
    ~Bureaucrat();
 
    std::string getName( void ) const;

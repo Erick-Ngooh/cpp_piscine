@@ -21,6 +21,12 @@ AAnimal::AAnimal()
    _type = "AAnimal";
 }
 
+AAnimal::AAnimal(AAnimal const &src)
+{
+   std::cout << "\033[1;31m" << "Copy AAnimal constructor called" << "\033[0m" << std::endl;
+   *this = src;
+}
+
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
@@ -29,3 +35,9 @@ AAnimal::~AAnimal()
    std::cout << "\033[1;31m" << "AAnimal destructor called" << "\033[0m" << std::endl;
 }
 
+AAnimal &AAnimal::operator=(AAnimal const &src)
+{
+   std::cout << "\033[1;31m" << "AAnimal assignment operator called" << "\033[0m" << std::endl;
+   _type = src._type;
+   return *this;
+}

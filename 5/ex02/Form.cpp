@@ -45,6 +45,11 @@ Form::Form(std::string name, int sign, int exec) : _name(name), _sign(sign), _ex
    std::cout << "Form constructor complete" << std::endl;
 }
 
+Form::Form(Form const &src) : _name(src._name), _sign(src._sign), _exec(src._exec)
+{
+   std::cout << "Form copy constructor called" << std::endl;
+   *this = src;
+}
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
@@ -56,6 +61,13 @@ Form::~Form()
 /*************************************************************/
 /*                         OPERATOR                          */
 /*************************************************************/
+
+Form &Form::operator=(Form const &src)
+{
+   std::cout << "Form assignment operator called" << std::endl;
+   _status = src._status;
+   return *this;
+}
 
 std::ostream &operator<<(std::ostream &nstream, Form &form)
 {

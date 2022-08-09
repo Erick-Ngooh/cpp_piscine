@@ -25,6 +25,8 @@ class Form
    };
    public:
       Form(std::string name, int sign, int exec);
+      Form(Form const &src);
+      Form &operator=(Form const &src);
       ~Form();
 
       std::string const &getName( void ) const;

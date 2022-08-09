@@ -1,4 +1,5 @@
 #include "Cat.hpp"
+#include "Animal.hpp"
 
 void  Cat::makeSound( void ) const
 {
@@ -15,7 +16,7 @@ Cat::Cat()
    _brain = new Brain();
 }
 
-Cat::Cat(Cat const &src)
+Cat::Cat(Cat const &src) : Animal()
 {
    std::cout << "\033[1;33m" << "Copy Cat constructor called" << "\033[0m" << std::endl;
    *this = src;
@@ -34,6 +35,6 @@ Cat &Cat::operator=(Cat const &src)
 {
    std::cout << "\033[1;33m" << "Cat assignment operator called" << "\033[0m" << std::endl;
    _type = src._type;
-   _brain = new Brain(src._brain);
+   _brain = src._brain;
    return *this;
 }

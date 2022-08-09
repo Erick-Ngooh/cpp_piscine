@@ -6,14 +6,14 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:28:02 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/19 18:36:37 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/09 09:01:36 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-void  alpha( void )
+void  alpha( void ) //Default working Form
 {
       std::cout << std::endl << "\033[1;31m" << "_____ALPHA_____" << "\033[0m" << std::endl;
 
@@ -29,7 +29,7 @@ void  alpha( void )
       std::cout << formtest << std::endl;
 }
 
-void  beta( void )
+void  beta( void ) //Signature ok, exec ko
 {
 
       std::cout << std::endl << "\033[1;31m" << "_____BETA______" << "\033[0m" << std::endl;
@@ -45,7 +45,7 @@ void  beta( void )
       std::cout << formtest1 << std::endl;
 }
 
-void  omega( void )
+void  omega( void ) //grade too low
 {
       std::cout << std::endl << "\033[1;31m" << "_____OMEGA_____" << "\033[0m" << std::endl;
 

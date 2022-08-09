@@ -1,7 +1,8 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
 
 class Brain
 {
@@ -9,7 +10,7 @@ class Brain
       Brain();
       Brain(Brain const &src);
       ~Brain();
-      Brain &operator(Brain const &src);
+      Brain &operator=(Brain const &src);
    private:
       std::string _ideas[100];
    protected:

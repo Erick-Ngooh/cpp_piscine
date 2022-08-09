@@ -18,6 +18,12 @@ WrongAnimal::WrongAnimal()
    _type = "WrongAnimal";
 }
 
+WrongAnimal::WrongAnimal(WrongAnimal const &src)
+{
+   std::cout << "Copy WrongAnimal constructor called" << std::endl;
+   *this = src;
+}
+
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
@@ -26,3 +32,9 @@ WrongAnimal::~WrongAnimal()
    std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &src)
+{
+   std::cout << "WrongAnimal assignment operator called" << std::endl;
+   _type = src._type;
+   return *this;
+}
