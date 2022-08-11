@@ -6,7 +6,7 @@
 /*   By: anremiki <anremiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:09 by anremiki          #+#    #+#             */
-/*   Updated: 2022/08/08 14:52:39 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/10 08:51:07 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,7 @@ int main( void )
 
     a = Fixed( 1234.4321f );
 
-    std::cout << 42.42 << std::endl;
-    std::cout << (1 << 8) << std::endl;
-    std::cout << 42.42 * (1 << 8) << std::endl;
-    std::cout << roundf(42.42 * (1 << 8)) << std::endl;
-
-    int z = 42.42;
-    std::cout << z << std::endl;
-    std::cout << ((10860) >> 8) << std::endl;
-    /*
+    
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;
@@ -39,5 +31,5 @@ int main( void )
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-    return 0;*/
+    return 0;
 }

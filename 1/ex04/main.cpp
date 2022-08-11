@@ -6,7 +6,7 @@
 /*   By: anremiki <anremiki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:13:50 by anremiki          #+#    #+#             */
-/*   Updated: 2022/06/21 17:29:15 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/10 08:35:18 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main(int ac, char **av)
 					result += line;
 					end = 0;
 				}
-				std::cout << result << std::endl << std::endl << std::endl;
+				//std::cout << result << std::endl << std::endl << std::endl;
 			}
 		}
 	}
@@ -67,7 +67,7 @@ int main(int ac, char **av)
 		std::cout << "Unable to open file" << std::endl;
 	s1 = av[1];
 	s1 += ".replace";
-	std::ofstream	newfile(s1);
+	std::ofstream	newfile(s1.c_str(), std::ofstream::out);
 	if (newfile.is_open())
 	{
 		newfile << result;

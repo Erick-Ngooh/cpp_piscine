@@ -13,7 +13,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string name) : Form("Preside
    std::cout << "Presidential constructor called" << std::endl << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : Form(src)
 {
    std::cout << "Presidential copy constructor called" << std::endl;
    *this = src;
@@ -29,6 +29,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &src)
 {
-   std::cout << "Presidential assignment operator called" << std::endl;
-   _
+   std::cout << "Presidential assignment operator called" << std::endl << std::endl;
+   _target = src._target;
+   return *this;
 }

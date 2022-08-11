@@ -6,14 +6,14 @@
 #    By: anremiki <anremiki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/21 20:43:59 by anremiki          #+#    #+#              #
-#    Updated: 2022/06/21 20:44:39 by anremiki         ###   ########.fr        #
+#    Updated: 2022/08/10 08:45:41 by anremiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harlFilter
 CC = c++
 SRCS = main.cpp Harl.cpp
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wno-implicit-fallthrough -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all, clean, fclean, re

@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:28:02 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/21 06:03:09 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/10 08:08:26 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 void  forms( void )
 {
 
+   Bureaucrat  manager("Manager", 1);
    std::cout << std::endl << "\033[1;36m" << " ---  FORMS --- " << "\033[0m" << std::endl;
 
    ShrubberyCreationForm shrub("Shruberry");
@@ -29,6 +30,22 @@ void  forms( void )
    std::cout << shrub << std::endl;
    std::cout << pres << std::endl;
    std::cout << robot << std::endl;
+   std::cout << "----------------------------------" << std::endl << std::endl;
+
+   shrub.beSigned(manager);
+   pres.beSigned(manager);
+   robot.beSigned(manager);
+
+   std::cout << std::endl << "\033[1;36m" << " ---  COPY FORMS --- " << "\033[0m" << std::endl;
+
+   ShrubberyCreationForm cshrub(shrub);
+   PresidentialPardonForm cpres(pres);
+   RobotomyRequestForm crobot(robot);
+
+   std::cout << "----------------------------------" << std::endl;
+   std::cout << cshrub << std::endl;
+   std::cout << cpres << std::endl;
+   std::cout << crobot << std::endl;
    std::cout << "----------------------------------" << std::endl << std::endl;
 }
 

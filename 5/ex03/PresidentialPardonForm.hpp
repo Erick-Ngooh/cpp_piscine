@@ -9,12 +9,14 @@ class PresidentialPardonForm : public Form
 {
    public:
       PresidentialPardonForm(std::string name);
+      PresidentialPardonForm(PresidentialPardonForm const &src);
+      PresidentialPardonForm &operator=(PresidentialPardonForm const &src);
       virtual ~PresidentialPardonForm();
       //virtual std::string const &getName( void ) const;
       
       void  execute( void ) const;
    private:
-      std::string const _target;
+      std::string _target;
    protected:
 };
 

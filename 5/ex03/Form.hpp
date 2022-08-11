@@ -33,6 +33,8 @@ class Form
    };
    public:
       Form(std::string name, int sign, int exec);
+      Form(Form const &src);
+      Form &operator=(Form const &src);
       virtual ~Form();
 
       std::string const &getName( void ) const;

@@ -1,4 +1,4 @@
-NAME = memory
+NAME = replace
 CC = g++
 SRCS = main.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98

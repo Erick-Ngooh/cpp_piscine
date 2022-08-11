@@ -33,6 +33,8 @@ Form  *Intern::makeForm(std::string name, std::string target)
 /*************************************************************/
 Intern::Intern()
 {
+   std::cout << "Intern constructor called" << std::endl << std::endl;
+
    _tabString[0] = "ShrubberyCreationForm";
    _tabString[1] = "RobotomyRequestForm";
    _tabString[2] = "PresidentialPardonForm";
@@ -42,13 +44,30 @@ Intern::Intern()
    _tabFunc[2] = &Intern::makePresident;
 }
 
+Intern::Intern(Intern const &src)
+{
+   std::cout << "Intern copy constructor called" << std::endl;
+   *this = src;
+}
+
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
-/*Intern::~Intern()
+Intern::~Intern()
 {
+   std::cout << "Intern destructor called" << std::endl;
 }
-*/
+
+Intern &Intern::operator=(const Intern &src)
+{
+   std::cout << "Intern assignment operator called" << std::endl << std::endl;
+   for (int i = 0; i < 3; i++)
+   {
+      _tabString[i] = src._tabString[i];
+      _tabFunc[i] = src._tabFunc[i];
+   }
+   return *this;
+}
 
 const char* Intern::BadNameException::what()const throw(){
 	return ("Wrong form name!");

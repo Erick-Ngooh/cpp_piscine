@@ -16,7 +16,7 @@ class ShrubberyCreationForm : public Form
       
       void  execute( void ) const;
    private:
-      std::string const _target;
+      std::string _target;
    protected:
 };
 

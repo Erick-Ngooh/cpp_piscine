@@ -17,6 +17,12 @@ RobotomyRequestForm::RobotomyRequestForm(std::string name) : Form("RobotomyReque
    std::cout << "Robotomy constructor called" << std::endl << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) : Form(src)
+{
+   std::cout << "Robotomy copy constructor called" << std::endl;
+   *this = src;
+}
+
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
@@ -25,3 +31,9 @@ RobotomyRequestForm::~RobotomyRequestForm()
    std::cout << "Robotomy destructor called" << std::endl;
 }
 
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
+{
+   std::cout << "Robotomy assignment operator called" << std::endl << std::endl;
+   _target = src._target;
+   return *this;
+}

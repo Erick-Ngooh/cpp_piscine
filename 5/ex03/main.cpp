@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:28:02 by anremiki          #+#    #+#             */
-/*   Updated: 2022/07/21 20:38:32 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/08/10 08:25:34 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void  test_intern( void )
 
       Bureaucrat  crat("Manager", 1);
       Intern   employe;
+      Intern   copy(employe);
 
-      //Form *pform = employe.makeForm("ShrubberyCreationForm", "TREE");
-      Form *pform = employe.makeForm("RobotomyRequestForm", "BENDER");
-      //Form *pform = employe.makeForm("PresidentialPardonForm", "STUDENT");
+      //Form *pform = copy.makeForm("ShrubberyCreationForm", "TREE");
+      //Form *pform = copy.makeForm("RobotomyRequestForm", "BENDER");
+      Form *pform = copy.makeForm("PresidentialPardonForm", "STUDENT");
       
       std::cout << *pform << std::endl;
       crat.signForm(*pform);

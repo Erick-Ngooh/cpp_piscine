@@ -14,7 +14,9 @@ class Intern
 {
    public:
       Intern();
-      //~Intern();
+      Intern(Intern const &src);
+      Intern &operator=(Intern const &src);
+      ~Intern();
       Form  *makeForm(std::string name, std::string target);
 
       Form  *makeShrub(std::string target);

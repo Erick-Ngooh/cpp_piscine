@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Form.hpp"
 
 void  ShrubberyCreationForm::execute(void) const
 {
@@ -30,10 +31,22 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : Form("Shrubbery
    std::cout << "Shrubbery constructor called" << std::endl << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : Form(src)
+{
+   std::cout << "Shrubbery copy constructor called" << std::endl;
+   *this = src;
+}
 /*************************************************************/
 /*                         DESTRUCTOR                        */
 /*************************************************************/
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
    std::cout << "Shrubbery destructor called" << std::endl;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &src)
+{
+   std::cout << "Shrubbery assignment operator called" << std::endl << std::endl;
+   _target = src._target;
+   return *this;
 }
