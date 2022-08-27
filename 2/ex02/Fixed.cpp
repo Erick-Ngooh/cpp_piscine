@@ -182,7 +182,7 @@ Fixed& Fixed::operator++( void )
 
 Fixed Fixed::operator++( int )
 {
-    Fixed   tmp;
+    Fixed   tmp(*this);
 
     tmp.setRawBits(_fix++);
     return (tmp);
