@@ -11,13 +11,11 @@ int	get_type(std::string str)
 	
 	if (str[0] != '.')
 	{
-		std::cout << "if" << std::endl;
 		if (!isdigit(str[0]))
 			return (-1);
 	}
 	else
 	{
-		std::cout << "else" << std::endl;
 		if (str[1])
 			if (!isdigit(str[1]))
 				return (-1);
@@ -25,26 +23,17 @@ int	get_type(std::string str)
 	for (int i = 0; str[i]; i++)
 	{
 		if (!isdigit(str[i]) && str[i] != '.' && str[i] != 'f')
-		{
-			std::cout << "error: " << str[i] << std::endl;
 			return (-1);
-		}
 		if (str[i] == '.')
 		{
 			if (point || floating)
-			{
-				std::cout << "first" << std::endl;
 				return (-1);
-			}
 			point = 1;
 		}
 		if (str[i] == 'f')
 		{
 			if (floating)
-			{
-				std::cout << "second" << std::endl;
 				return (-1);
-			}
 			floating = 2;
 		}
 		if (isdigit(str[i]))
@@ -52,10 +41,7 @@ int	get_type(std::string str)
 			if (point && str[i] != '0')
 				valid = 4;
 			if (floating)
-			{
-				std::cout << "third" << std::endl;
 				return (-1);
-			}
 		}
 	}
 	return (point + floating + valid);
@@ -80,7 +66,7 @@ void	double_converter(std::string str)
 	double	value;
 
 	value = strtod(str.c_str(), NULL);
-	if (value > 31 && value < 127)
+	if (value >= 32 && value < 127)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
@@ -93,9 +79,8 @@ void	double_converter(std::string str, bool)
 {
 	double	value;
 
-	std::cout << "OVERLOAD" << std::endl;
 	value = strtod(str.c_str(), NULL);
-	if (value > 31 && value < 127)
+	if (value >= 32 && value < 127)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
@@ -109,7 +94,7 @@ void	float_converter(std::string str)
 	float	value;
 
 	value = atof(str.c_str());
-	if (value > 31 && value < 127)
+	if (value >= 32 && value < 127)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
@@ -122,9 +107,8 @@ void	float_converter(std::string str, bool)
 {
 	float	value;
 
-	std::cout << "OVERLOAD" << std::endl;
 	value = atof(str.c_str());
-	if (value > 31 && value < 127)
+	if (value >= 32 && value < 127)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
@@ -143,7 +127,6 @@ void	char_converter(char c)
 
 void	convert(int type, std::string str)
 {
-	std::cout << "type: " << type << std::endl << std::endl;
 	switch (type)
 	{
 		case 0:
@@ -172,13 +155,46 @@ void	check_char(std::string str)
 				return (convert(8, str));
 }
 
+bool is_expection(std::string str)
+{
+	if (str == "nan" || str == "nanf" || str == "inf" || str == "inff" || str == "-inf" || str == "+inf" || str == "+inff" || str == "-inff")
+		return (true);
+	return (false);
+}
+
+void	do_exception(std::string str)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (str == "nan" || str == "nanf")
+	{
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
+	else if (str == "+inf" || str == "inf" || str == "inff" || str == "+inff")
+	{
+		std::cout << "float: inff" << std::endl;
+		std::cout << "double: inf" << std::endl;
+	}
+	else if (str == "-inf" || str == "-inff")
+	{
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+}
+
 int main(int ac, char **av)
 {
 	if (ac != 2)
 		return (0);
 	std::string	str = av[1];
-	check_char(str);
-	convert(get_type(str), str);
-	std::cout << "CONVERTED" << std::endl;
+
+	if (is_expection(str))
+		do_exception(str);
+	else
+	{
+		check_char(str);
+		convert(get_type(str), str);
+	}
 	return (0);
 }
