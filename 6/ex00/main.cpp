@@ -56,7 +56,7 @@ void	int_converter(std::string str)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
-	std::cout << "int: " << value << std::endl;
+	std::cout << "\033[1;34m" << "int: " << "\033[0m" << value << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
 }
@@ -72,7 +72,7 @@ void	double_converter(std::string str)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
-	std::cout << "double: " << value << ".0" << std::endl;
+	std::cout << "\033[1;34m" << "double: " << "\033[0m" << value << ".0" << std::endl;
 }
 
 void	double_converter(std::string str, bool)
@@ -86,7 +86,7 @@ void	double_converter(std::string str, bool)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
-	std::cout << "double: " << value << std::endl;
+	std::cout << "\033[1;34m" << "double: " << "\033[0m" << value << std::endl;
 }
 
 void	float_converter(std::string str)
@@ -99,7 +99,7 @@ void	float_converter(std::string str)
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
-	std::cout << "float: " << value << ".0f" << std::endl;
+	std::cout << "\033[1;34m" << "float: " << "\033[0m"<< value << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
 }
 
@@ -113,13 +113,13 @@ void	float_converter(std::string str, bool)
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
-	std::cout << "float: " << value << "f" << std::endl;
+	std::cout << "\033[1;34m" << "float: " << "\033[0m" << value << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
 void	char_converter(char c)
 {
-	std::cout << "char: " << c << std::endl;
+	std::cout << "\033[1;34m" << "char: " << "\033[0m" << c << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
