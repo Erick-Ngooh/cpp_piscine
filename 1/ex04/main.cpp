@@ -33,6 +33,11 @@ int main(int ac, char **av)
 			buffer += "\n";
 		}
 		file.close();
+		if (buffer.length() == 0)
+		{
+			std::cout << "The file is empty" << std::endl;
+			return (0);
+		}
 		std::size_t found = 0;
 		std::size_t last_found = 0;
 		std::size_t save = 0;
