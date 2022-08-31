@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include <stdlib.h>
 
 template<typename T>
 class Array
@@ -13,7 +14,8 @@ class Array
 			_size = 0;
 		}
 		Array(unsigned int n){
-			if (n)
+			std::cout << "construct size equal " << _size << std::endl;
+			if (n > 0)
 			{
 				_array = new T[n];
 				_size = n;
@@ -23,13 +25,22 @@ class Array
 				_array = NULL;
 				_size = 0;
 			}
+			std::cout << "construct n equal " << n << std::endl;
+			std::cout << "after construct size equal " << _size << std::endl;
 		}
 		Array(Array const &src){
+			std::cout << "Constructeur copy\n";
+			_size = 0;
 			*this = src;
+			std::cout << "Constructeur copy end\n";
 		}
 		~Array(void){
 			if (_size)
+			{
+				std::cout << "before destructor\n";
 				delete [] _array;
+				std::cout << "after destructor\n";
+			}
 		}
 		unsigned int size( void ){
 			return _size;
@@ -41,11 +52,18 @@ class Array
 				}
 		};
 		Array &operator=(Array const &src){
-			if (_size)
-				delete [] _array;
-			if (src._size)
+			if (_size > 0)
 			{
+				std::cout << "size equal = " << _size << std::endl;
+				std::cout << "before = _size\n";
+				delete [] _array;
+				std::cout << "after = _size\n";
+			}
+			if (src._size > 0)
+			{
+				std::cout << "src.size = " << src._size << std::endl;
 				_array = new T[src._size];
+				std::cout << "after malloc" << std::endl;
 				for (int i = 0; src._array[i]; i++)
 					_array[i] = src._array[i];
 			}

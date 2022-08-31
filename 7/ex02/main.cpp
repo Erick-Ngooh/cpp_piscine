@@ -4,6 +4,7 @@
 
 int main(int, char **)
 {
+	std::cout << "numbers\n";
 	Array<int> numbers(MAX_VAL);
 	int	*mirror = new int[MAX_VAL];
 	srand(time(NULL));
@@ -13,10 +14,12 @@ int main(int, char **)
 		numbers[i] = value;
 		mirror[i] = value;
 	}
-	//SCOPE
 	{
+		std::cout << "tmp = numbers\n";
 		Array<int> tmp = numbers;
+		std::cout << "test(tmp)\n";
 		Array<int> test(tmp);
+		std::cout << "after test(tmp)\n";
 	}
 
 	for (int i = 0; i < MAX_VAL; i++)

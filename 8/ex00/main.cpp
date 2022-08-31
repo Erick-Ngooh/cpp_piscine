@@ -1,5 +1,12 @@
 #include "easyfind.hpp"
+#include <vector>
+#include <iostream>
 #include <exception>
+
+const char *NoNeedle::what() const throw()
+{
+	return ("No occurence found");
+}
 
 int main(void)
 {
