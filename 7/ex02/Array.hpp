@@ -5,16 +5,18 @@
 #include <exception>
 #include <stdlib.h>
 
-template<typename T>
+template<typename T = int>
 class Array
 {
 	public:
 		Array(void){
+			std::cout << "Array <Void> constructor called" << std::endl;
 			_array = NULL;
 			_size = 0;
 		}
+
 		Array(unsigned int n){
-			std::cout << "construct size equal " << _size << std::endl;
+			std::cout << "Array <unsigned int> constructor called" << std::endl << std::endl;
 			if (n > 0)
 			{
 				_array = new T[n];
@@ -25,57 +27,55 @@ class Array
 				_array = NULL;
 				_size = 0;
 			}
-			std::cout << "construct n equal " << n << std::endl;
-			std::cout << "after construct size equal " << _size << std::endl;
 		}
+
 		Array(Array const &src){
-			std::cout << "Constructeur copy\n";
+			std::cout << "Array <Copy> constructor called" << std::endl;
+			_array = NULL;
 			_size = 0;
 			*this = src;
-			std::cout << "Constructeur copy end\n";
 		}
+
 		~Array(void){
 			if (_size)
-			{
-				std::cout << "before destructor\n";
 				delete [] _array;
-				std::cout << "after destructor\n";
-			}
 		}
+
 		unsigned int size( void ){
 			return _size;
 		}
+
 		class Overflow : public std::exception{
 			public:
 				virtual const char *what() const throw(){
-					return "Possible buffer overflow";
+					return "\033[1;31m Possible buffer overflow\033[0m";
 				}
 		};
-		Array &operator=(Array const &src){
+
+		Array &operator=(Array const &src)
+		{
+			std::cout << "Array assignment operator called" << std::endl << std::endl;
 			if (_size > 0)
-			{
-				std::cout << "size equal = " << _size << std::endl;
-				std::cout << "before = _size\n";
 				delete [] _array;
-				std::cout << "after = _size\n";
-			}
 			if (src._size > 0)
 			{
-				std::cout << "src.size = " << src._size << std::endl;
 				_array = new T[src._size];
-				std::cout << "after malloc" << std::endl;
-				for (int i = 0; src._array[i]; i++)
+				for (unsigned int i = 0; i < src._size; i++)
 					_array[i] = src._array[i];
 			}
+			else 
+				_array = NULL;
 			_size = src._size;
 			return *this;
 		}
+
 		T & operator[]( unsigned int index ){
-			if (!_size || index >= _size)
+			if (_size < 1 || index >= _size)
 				throw(Overflow());
 			else
 				return _array[index];
 		}
+
 	private:
 		T	*_array;
 		unsigned int	_size;

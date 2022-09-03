@@ -1,50 +1,82 @@
 #include "Array.hpp"
+#include <exception>
+#include <string>
 
 #define MAX_VAL 750
 
-int main(int, char **)
+	template< typename T>
+std::ostream &operator<<(std::ostream &nstream, Array<T> &src)
 {
-	std::cout << "numbers\n";
-	Array<int> numbers(MAX_VAL);
-	int	*mirror = new int[MAX_VAL];
-	srand(time(NULL));
-	for (int i = 0; i < MAX_VAL; i++)
-	{
-		const int value = rand();
-		numbers[i] = value;
-		mirror[i] = value;
-	}
-	{
-		std::cout << "tmp = numbers\n";
-		Array<int> tmp = numbers;
-		std::cout << "test(tmp)\n";
-		Array<int> test(tmp);
-		std::cout << "after test(tmp)\n";
-	}
+	if (src.size() > 0)
+		for (unsigned int i = 0; i < src.size(); i++)
+			nstream << src[i] << " ";
+	else
+		nstream << "Empty array";
+	nstream << std::endl;
 
-	for (int i = 0; i < MAX_VAL; i++)
+	return nstream;
+}
+
+int main(int ac, char **av)
+{
+	srand(time(NULL));
 	{
-		if (mirror[i] != numbers[i])
+		std::cout << "\033[1;44mDefault template <int> test\033[0m" << std::endl;
+		Array<> tab(10);
+		for (unsigned int i = 0; i < tab.size(); i++)
+			tab[i] = rand() % 100;
+		try {
+			std::cout << "Trying to print tab[15] value with size of tab equal " << tab.size() << std::endl;
+			std::cout << tab[15] << std::endl;
+		} catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
+
+		Array<int> tabvoid;
+		try {
+			std::cout << "Trying to print tabvoid[0] value while tabvoid is still NULL" << std::endl;
+			std::cout << tabvoid[0] << std::endl;
+		} catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
+		tabvoid = tab;
+
+		Array<int> tabcopy(tabvoid);
+
+		std::cout << "Tab(10): " << std::endl << tab << std::endl;
+		std::cout << "Tabvoid = Tab: " << std::endl << tabvoid << std::endl;
+		std::cout << "Tabcopy(Tabvoid): " << std::endl << tabcopy << std::endl;
+		std::cout << "______________________________" << std::endl;
+	}
+	{
+		if (ac == 3)
 		{
-			std::cerr << "didn't save the same value!!" << std::endl;
-			return 1;
+			std::cout << "\033[1;44mstd::string template test\033[0m" << std::endl;
+			Array<std::string> tab(3);
+			tab[0] = av[0];
+			tab[1] = av[1];
+			tab[2] = av[2];
+			try {
+				std::cout << "Trying to print tab[15] value with size of tab equal " << tab.size() << std::endl;
+				std::cout << tab[15] << std::endl;
+			} catch (std::exception & e) {
+				std::cout << e.what() << std::endl;
+			}
+
+			Array<std::string> tabvoid;
+			try {
+				std::cout << "Trying to print tabvoid[0] value while tabvoid is still NULL" << std::endl;
+				std::cout << tabvoid[0] << std::endl;
+			} catch (std::exception & e) {
+				std::cout << e.what() << std::endl;
+			}
+			tabvoid = tab;
+
+			Array<std::string> tabcopy(tabvoid);
+			std::cout << "Tab(3): " << std::endl << tab << std::endl;
+			std::cout << "Tabvoid = Tab: " << std::endl << tabvoid << std::endl;
+			std::cout << "Tabcopy(Tabvoid): " << std::endl << tabcopy << std::endl;
+			std::cout << "______________________________" << std::endl;
 		}
 	}
-	try {
-	numbers[-2] = 0;
-	} catch (const std::exception& e) {
-		std::cerr << e.what() << '\n';
-	}
-	try {
-	numbers[MAX_VAL] = 0;
-	} catch (const std::exception& e) {
-		std::cerr << e.what() << '\n';
-	}
-	
-	for (int i = 0; i < MAX_VAL; i++)
-	{
-		numbers[i] = rand();
-	}
-	delete [] mirror;//
-	return 0;
 }
