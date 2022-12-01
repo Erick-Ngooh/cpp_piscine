@@ -1,3 +1,4 @@
+
 SRCS = main.cpp \
 
 OBJS = ${SRCS:.cpp=.o}
@@ -8,7 +9,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Array
+NAME = type
 
 .cpp.o:
 		${CC} ${FLAGS} -c $< -o ${<:.cpp=.o}

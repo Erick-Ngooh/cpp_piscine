@@ -6,6 +6,18 @@ void  Cat::makeSound( void ) const
    std::cout << "Cat says : Purrrr purrrrrr meoww" << std::endl;
 }
 
+void  Cat::setIdea(int index, std::string new_idea) {
+   this->_brain->setIdea(index, new_idea);
+}
+
+std::string Cat::getIdea(int index) const {
+   return this->_brain->getIdea(index);
+}
+
+std::string Cat::getIdea(int index) {
+   return this->_brain->getIdea(index);
+}
+
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
@@ -35,6 +47,6 @@ Cat &Cat::operator=(Cat const &src)
 {
    std::cout << "\033[1;33m" << "Cat assignment operator called" << "\033[0m" << std::endl;
    _type = src._type;
-   _brain = src._brain;
+   *_brain = *src._brain;
    return *this;
 }

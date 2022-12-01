@@ -23,13 +23,13 @@ void  forms( void )
    std::cout << std::endl << "\033[1;36m" << " ---  FORMS --- " << "\033[0m" << std::endl;
 
    ShrubberyCreationForm shrub("Shruberry");
-   PresidentialPardonForm pres("President");
    RobotomyRequestForm  robot("Robot");
+   PresidentialPardonForm pres("President");
 
    std::cout << "----------------------------------" << std::endl;
    std::cout << shrub << std::endl;
-   std::cout << pres << std::endl;
    std::cout << robot << std::endl;
+   std::cout << pres << std::endl;
    std::cout << "----------------------------------" << std::endl << std::endl;
 
    shrub.beSigned(manager);
@@ -39,13 +39,13 @@ void  forms( void )
    std::cout << std::endl << "\033[1;36m" << " ---  COPY FORMS --- " << "\033[0m" << std::endl;
 
    ShrubberyCreationForm cshrub(shrub);
-   PresidentialPardonForm cpres(pres);
    RobotomyRequestForm crobot(robot);
+   PresidentialPardonForm cpres(pres);
 
    std::cout << "----------------------------------" << std::endl;
    std::cout << cshrub << std::endl;
-   std::cout << cpres << std::endl;
    std::cout << crobot << std::endl;
+   std::cout << cpres << std::endl;
    std::cout << "----------------------------------" << std::endl << std::endl;
 }
 
@@ -58,13 +58,13 @@ void  alpha( void )
 
       std::cout << test << std::endl;
 
-     // formtest.beExec(test); /* Not signed yet = KO */
+     // formtest.execute(test); /* Not signed yet = KO */
 
       formtest.beSigned(test);
 
       std::cout << formtest << std::endl;
 
-      formtest.beExec(test); /* Signed = success */
+      formtest.execute(test); /* Signed = success */
 }
 
 void  beta( void )
@@ -83,7 +83,7 @@ void  beta( void )
 
       std::cout << formtest1 << std::endl;
 
-      formtest1.beExec(executor);
+      formtest1.execute(executor);
 }
 
 void  omega( void )
@@ -91,6 +91,7 @@ void  omega( void )
       std::cout << std::endl << "\033[1;31m" << "_____PRESIDENT_____" << "\033[0m" << std::endl;
 
       Bureaucrat test2("Omega", 20);
+      //Bureaucrat test2("Omega", 3);
       PresidentialPardonForm formtest2("Arthur Dent");
 
       std::cout << test2 << std::endl;
@@ -99,7 +100,7 @@ void  omega( void )
 
       std::cout << formtest2 << std::endl;
 
-      formtest2.beExec(test2);
+      formtest2.execute(test2);
 }
 
 int main(void)

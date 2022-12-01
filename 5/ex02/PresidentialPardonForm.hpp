@@ -14,7 +14,7 @@ class PresidentialPardonForm : public Form
       virtual ~PresidentialPardonForm();
       //virtual std::string const &getName( void ) const;
       
-      void  execute( void ) const;
+      void  execute_( void ) const;
    private:
       std::string _target;
    protected:

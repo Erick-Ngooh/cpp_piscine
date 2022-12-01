@@ -21,12 +21,12 @@ void  Form::changeStatus( void )
    _status = true;
 }
 
-void  Form::beSigned(Bureaucrat &bureau)
+void  Form::beSigned(Bureaucrat const &bureau)
 {
    bureau.signForm(*this);
 }
 
-void  Form::beExec(Bureaucrat &bureau)
+void  Form::execute(Bureaucrat const &bureau)
 {
    bureau.executeForm(*this);
 }

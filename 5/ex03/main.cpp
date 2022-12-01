@@ -25,13 +25,13 @@ void  test_intern( void )
       Intern   employe;
       Intern   copy(employe);
 
-      //Form *pform = copy.makeForm("ShrubberyCreationForm", "TREE");
+      Form *pform = copy.makeForm("ShrubberyCreationForm", "TREE");
       //Form *pform = copy.makeForm("RobotomyRequestForm", "BENDER");
-      Form *pform = copy.makeForm("PresidentialPardonForm", "STUDENT");
+      //Form *pform = copy.makeForm("PresidentialPardonForm", "STUDENT");
       
       std::cout << *pform << std::endl;
       crat.signForm(*pform);
-      pform->beExec(crat);
+      pform->execute(crat);
       delete pform;
 }
 

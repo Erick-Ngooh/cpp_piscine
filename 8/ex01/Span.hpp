@@ -34,9 +34,9 @@ class Span
       void addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
       int shortestSpan(void);
       int longestSpan(void);
-      std::vector<int> &getVec(void){
-         return (_v);
-      }
+      unsigned int   size(void);
+      std::vector<int>::iterator begin(void);
+      std::vector<int>::iterator end(void);
    private:
       std::vector<int> _v;
       unsigned int   _size;

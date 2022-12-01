@@ -27,9 +27,9 @@ $(OBJS): $(SRCS)
 	$(CC) $(FLAGS) $(SRCS) -c
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean $(NAME)

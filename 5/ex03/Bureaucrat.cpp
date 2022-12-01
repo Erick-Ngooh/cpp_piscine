@@ -26,7 +26,7 @@ void  Bureaucrat::downgrade( void )
       throw GradeTooLowException();
 }
 
-void  Bureaucrat::signForm(Form &form)
+void  Bureaucrat::signForm(Form &form) const
 {
    if (_grade > form.getSignGrade())
    {
@@ -38,7 +38,7 @@ void  Bureaucrat::signForm(Form &form)
    std::cout << "Bureaucrat " << getName() << " signed " << form.getName() << std::endl;
 }
 
-void  Bureaucrat::executeForm(Form const &form)
+void  Bureaucrat::executeForm(Form const &form) const
 {
    if (_grade > form.getExecGrade() || !form.getStatus())
    {
@@ -46,7 +46,7 @@ void  Bureaucrat::executeForm(Form const &form)
          << form.getName() << " because grade is too low" << std::endl;
       throw GradeTooLowException();
    }
-   form.execute();
+   form.execute_();
    std::cout << _name << " executed " << form.getName() << std::endl;
 }
 

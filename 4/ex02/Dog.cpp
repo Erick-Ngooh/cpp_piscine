@@ -34,6 +34,6 @@ Dog &Dog::operator=(Dog const &src)
 {
    std::cout << "\033[1;38m" << "Dog assignment operator called" << "\033[0m" << std::endl;
    _type = src._type;
-   _brain = src._brain;
+   *_brain = *src._brain;
    return *this;
 }

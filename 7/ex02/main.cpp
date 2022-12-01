@@ -26,6 +26,9 @@ int main(int ac, char **av)
 		for (unsigned int i = 0; i < tab.size(); i++)
 			tab[i] = rand() % 100;
 		try {
+			std::cout << "Trying to print tab[2] value with size of tab equal " << tab.size() << std::endl;
+			std::cout << tab[2] << std::endl << std::endl;
+
 			std::cout << "Trying to print tab[15] value with size of tab equal " << tab.size() << std::endl;
 			std::cout << tab[15] << std::endl;
 		} catch (std::exception & e) {
@@ -57,6 +60,8 @@ int main(int ac, char **av)
 			tab[1] = av[1];
 			tab[2] = av[2];
 			try {
+				std::cout << "Trying to print tab[2] value with size of tab equal " << tab.size() << std::endl;
+				std::cout << tab[2] << std::endl << std::endl;
 				std::cout << "Trying to print tab[15] value with size of tab equal " << tab.size() << std::endl;
 				std::cout << tab[15] << std::endl;
 			} catch (std::exception & e) {

@@ -14,11 +14,13 @@
 
 uintptr_t	serialize(Data *ptr)
 {
+	std::cout << std::endl << "_serialize_" << std::endl << std::endl;
 	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
 Data	*deserialize(uintptr_t raw)
 {
+	std::cout << std::endl << "_deserialize_" << std::endl << std::endl;
 	return (reinterpret_cast<Data *>(raw));
 }
 
@@ -30,11 +32,12 @@ int main( void )
 	ptr = new Data;
 	ptr->i = 42;
 
+	std::cout << "Data member value: " << ptr->i << std::endl;
 	raw = serialize(ptr);
-	std::cout << raw << std::endl;
+	std::cout << "serialize return value: " << raw << std::endl;
 
 	ptr = deserialize(raw);
-	std::cout << ptr->i << std::endl;
+	std::cout << "deserialize return value: " << ptr->i << std::endl;
 
 	delete ptr;
 }

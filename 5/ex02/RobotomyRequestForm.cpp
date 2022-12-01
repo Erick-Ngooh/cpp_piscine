@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <time.h> 
 
-void  RobotomyRequestForm::execute( void ) const
+void  RobotomyRequestForm::execute_( void ) const
 {
    srand(time(0));
    if (rand() % 2 == 1)

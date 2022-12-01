@@ -1,17 +1,17 @@
 #include "Span.hpp"
 #include <exception>
 
-void    printvec(std::vector<int> &vec)
+void    printvec(Span &src)
 {
     std::cout << std::endl << "Vector values: " << std::endl << std::endl;
     std::vector<int>::iterator it;
 
-    if (vec.size() < 1)
+    if (src.size() < 1)
     {
         std::cout << "Vector is empty" << std::endl << std::endl;
         return ;
     }
-    for (it = vec.begin(); it != vec.end(); it++)
+    for (it = src.begin(); it != src.end(); it++)
         std::cout << *it << " ";
     std::cout << std::endl << std::endl;
 }
@@ -43,14 +43,14 @@ int main(int ac, char **av)
             {
                 for (unsigned int i = 0; i < size; i++)
                     test.addNumber(rand() % 100);
-                printvec(test.getVec());
+                printvec(test);
                 std::cout << test.shortestSpan() << std::endl;
                 std::cout << test.longestSpan() << std::endl;
 
                 Span test_it(size);
 
-                test_it.addNumber(test.getVec().begin(), test.getVec().end());
-                printvec(test_it.getVec());
+                test_it.addNumber(test.begin(), test.end());
+                printvec(test_it);
 
                 test.addNumber(42);
             }

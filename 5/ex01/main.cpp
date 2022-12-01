@@ -19,6 +19,7 @@ void  alpha( void ) //Default working Form
 
       Bureaucrat test("Alpha", 2);
       Form formtest("Alphaform", 1, 1);
+     // Form formtest("Alphaform", 0, 1);
 
       std::cout << test << std::endl;
       std::cout << formtest << std::endl;
@@ -56,6 +57,8 @@ void  omega( void ) //grade too low
       std::cout << formtest2 << std::endl;
 
       formtest2.beSigned(test2);
+      
+      std::cout << formtest2 << std::endl;
 }
 
 int main(void)

@@ -76,7 +76,7 @@ int main(int ac, char **av)
 	else if (str == "vector")
 	{
 		std::cout << "VECTOR TEST" << std::endl;
-		MutantStack<int, std::vector<int> > mstack;
+		MutantStack<int> mstack;
 
 		std::cout << std::boolalpha;
 		std::cout << "\033[1;32mmstack.empty(): \033[0m" << mstack.empty() << std::endl;
@@ -103,8 +103,8 @@ int main(int ac, char **av)
 		std::cout << "\033[1;34mPushing: \033[0m" << 0 << std::endl << std::endl;
 		mstack.push(0);
 
-		MutantStack<int, std::vector<int> >::iterator it = mstack.begin();
-		MutantStack<int, std::vector<int> >::iterator ite = mstack.end();
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
 
 		++it;
 		--it;
@@ -116,10 +116,10 @@ int main(int ac, char **av)
 		}
 		std::cout << std::endl;
 
-		MutantStack<int, std::vector<int> > copystack(mstack);
+		MutantStack<int> copystack(mstack);
 
-		MutantStack<int, std::vector<int> >::iterator cit = copystack.begin();
-		MutantStack<int, std::vector<int> >::iterator cite = copystack.end();
+		MutantStack<int>::iterator cit = copystack.begin();
+		MutantStack<int>::iterator cite = copystack.end();
 
 		std::cout << "Printing copied stack values: " << std::endl;
 		while (cit != cite)
@@ -128,12 +128,12 @@ int main(int ac, char **av)
 			std::cout << " ● " << *cite << std::endl;
 		}
 		std::cout << std::endl << std::endl;
-		std::stack<int, std::vector<int> > s(mstack);
+		std::stack<int> s(mstack);
 	}
 	else if (str == "list")
 	{
 		std::cout << "LIST TEST" << std::endl;
-		MutantStack<int, std::list<int> > mstack;
+		MutantStack<int> mstack;
 
 		std::cout << std::boolalpha;
 		std::cout << "\033[1;32mmstack.empty(): \033[0m" << mstack.empty() << std::endl;
@@ -160,8 +160,8 @@ int main(int ac, char **av)
 		std::cout << "\033[1;34mPushing: \033[0m" << 0 << std::endl << std::endl;
 		mstack.push(0);
 
-		MutantStack<int, std::list<int> >::iterator it = mstack.begin();
-		MutantStack<int, std::list<int> >::iterator ite = mstack.end();
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
 
 		++it;
 		--it;
@@ -173,10 +173,10 @@ int main(int ac, char **av)
 		}
 		std::cout << std::endl;
 
-		MutantStack<int, std::list<int> > copystack(mstack);
+		MutantStack<int> copystack(mstack);
 
-		MutantStack<int, std::list<int> >::iterator cit = copystack.begin();
-		MutantStack<int, std::list<int> >::iterator cite = copystack.end();
+		MutantStack<int>::iterator cit = copystack.begin();
+		MutantStack<int>::iterator cite = copystack.end();
 
 		std::cout << "Printing copied stack values: " << std::endl;
 		while (cit != cite)
@@ -185,7 +185,7 @@ int main(int ac, char **av)
 			std::cout << " ● " << *cite << std::endl;
 		}
 		std::cout << std::endl << std::endl;
-		std::stack<int, std::list<int> > s(mstack);
+		std::stack<int> s(mstack);
 	}
 	return 0;
 }

@@ -43,9 +43,9 @@ class Form
       bool  getStatus( void ) const;
       void  changeStatus( void );
 
-      void  beSigned(Bureaucrat &bureau);
-      void  beExec(Bureaucrat &bureau);
-      virtual void  execute( void ) const = 0;
+      void  beSigned(Bureaucrat const &bureau);
+      void  execute(Bureaucrat const &bureau);
+      virtual void  execute_( void ) const = 0;
    private:
       std::string const _name;
       bool  _status;

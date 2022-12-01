@@ -1,4 +1,5 @@
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
 void  WrongCat::makeSound( void ) const
 {
@@ -7,13 +8,13 @@ void  WrongCat::makeSound( void ) const
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal()
 {
    std::cout << "Default WrongCat constructor called" << std::endl;
    _type = "WrongCat";
 }
 
-WrongCat::WrongCat(WrongCat const &src)
+WrongCat::WrongCat(WrongCat const &src) : WrongAnimal()
 {
    std::cout << "Copy WrongCat constructor called" << std::endl;
    *this = src;

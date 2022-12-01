@@ -1,5 +1,17 @@
 #include "Span.hpp"
 
+std::vector<int>::iterator Span::begin(void) {
+    return _v.begin();
+}
+
+std::vector<int>::iterator Span::end(void) {
+    return _v.end();
+}
+
+unsigned int   Span::size(void) {
+    return _v.size();
+}
+
 void    Span::addNumber(int num)
 {
     std::cout << "\033[1;34mSpan::addNumber <num> called, adding: \033[0m" << num << std::endl;

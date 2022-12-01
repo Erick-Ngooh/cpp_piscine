@@ -17,6 +17,11 @@
 #include "WrongCat.hpp"
 #include "Brain.hpp"
 
+#if 0
+   #define test true
+#else
+   #define test false
+#endif
 void  separator(int choice)
 {
    if (choice < 4)
@@ -89,28 +94,30 @@ int main( void )
    delete weird;
    delete wanimal;
 
-   separator(1);
-   AAnimal   *animals[100];
-   
-   for (int i = 0; i < 100; i++)
-   {
-      if (i < 50)
-         animals[i] = new Dog();
-      else
-         animals[i] = new Cat();
-   }
-   
-   separator(2);
-   for (int i = 0; i < 100; i++)
-   {
-      std::cout << i << " ";
-      animals[i]->makeSound();
-   }
+   if (test) {
+      separator(1);
+      AAnimal   *animals[100];
 
-   separator(3);
-   for (int i = 0; i < 100; i++)
-      delete animals[i];
+      for (int i = 0; i < 100; i++)
+      {
+         if (i < 50)
+            animals[i] = new Dog();
+         else
+            animals[i] = new Cat();
+         //animals[i] = new AAnimal();
+      }
 
+      separator(2);
+      for (int i = 0; i < 100; i++)
+      {
+         std::cout << i << " ";
+         animals[i]->makeSound();
+      }
+
+      separator(3);
+      for (int i = 0; i < 100; i++)
+         delete animals[i];
+   }
    std::cout << std::endl;
    return (0);
 }

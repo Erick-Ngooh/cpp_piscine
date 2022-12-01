@@ -7,6 +7,18 @@ void  Dog::makeSound( void ) const
    std::cout << "Dog says : Wuf wuf" << std::endl;
 }
 
+void  Dog::setIdea(int index, std::string new_idea) {
+   this->_brain->setIdea(index, new_idea);
+}
+
+std::string Dog::getIdea(int index) const {
+   return this->_brain->getIdea(index);
+}
+
+std::string Dog::getIdea(int index) {
+   return this->_brain->getIdea(index);
+}
+
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
@@ -35,6 +47,6 @@ Dog &Dog::operator=(Dog const &src)
 {
    std::cout << "\033[1;38m" << "Dog assignment operator called" << "\033[0m" << std::endl;
    _type = src._type;
-   _brain = src._brain;
+   *_brain = *src._brain;
    return *this;
 }

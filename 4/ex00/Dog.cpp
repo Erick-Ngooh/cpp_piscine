@@ -8,13 +8,13 @@ void  Dog::makeSound( void ) const
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-Dog::Dog()
+Dog::Dog() : Animal()
 {
    std::cout << "Default Dog constructor called" << std::endl;
    _type = "Dog";
 }
 
-Dog::Dog(Dog const &src)
+Dog::Dog(Dog const &src) : Animal()
 {
    std::cout << "Copy Dog constructor called" << std::endl;
    *this = src;

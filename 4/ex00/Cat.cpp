@@ -8,13 +8,13 @@ void  Cat::makeSound( void ) const
 /*************************************************************/
 /*                          CONSTRUCTOR                      */
 /*************************************************************/
-Cat::Cat()
+Cat::Cat() : Animal()
 {
    std::cout << "Default Cat constructor called" << std::endl;
    _type = "Cat";
 }
 
-Cat::Cat(Cat const &src)
+Cat::Cat(Cat const &src) : Animal()
 {
    std::cout << "Copy Cat constructor called" << std::endl;
    *this = src;
